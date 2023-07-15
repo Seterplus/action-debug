@@ -1,0 +1,16 @@
+name: CI
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "pypy3.9"
+      - name: Debugging with tmate
+        uses: mxschmitt/action-tmate@v3
+        with:
+          # Whether to authorize only the public SSH keys of the user triggering the workflow (defaults to true if the GitHub profile of the user has a public SSH key)
+          limit-access-to-actor: false
